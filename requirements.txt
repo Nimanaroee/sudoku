@@ -1,0 +1,4 @@
+pygame>=2.5.0
+# Optional but recommended for puzzle generation
+dokusan>=0.1.0
+py-sudoku
