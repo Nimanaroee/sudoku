@@ -6,7 +6,7 @@ A simple 2-player Sudoku game for two laptops on the same hotspot/LAN.
 
 - Host/client LAN play using Python sockets
 - Real-time win notification (`You won` / `Peer won`)
-- Sudoku generation using 
+- Sudoku generation using [sudoku generator](https://github.com/BurnYourPc/Sudoku/tree/master)
 - Keyboard + mouse controls in a `pygame` window
 
 ## Requirements
