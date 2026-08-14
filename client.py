@@ -15,7 +15,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # IP of the computer running server.py (Found via ipconfig/ifconfig)
 SERVER_IP = input("Enter Host IP: ") 
 client.connect((SERVER_IP, 5555))
-
+ldkldslk
 # Receive the board from server
 initial_board_data = client.recv(1024).decode()
 # ... Convert string to 9x9 grid ...
@@ -62,21 +62,23 @@ def get_highlight_cells(row, col):
         return cells
     
     # Find all occurrences of the target value
-    matches = np.argwhere(board_array == target_value)
+    for r in range(9):
+        for c in range(9):
+            if board_array[r][c] == target_value:
+                cells.add((r, c))
     
-    for (r, c) in matches:
-        # Add row
-        for j in range(9):
-            cells.add((r, j))
-        # Add column
-        for i in range(9):
-            cells.add((i, c))
-        # Add 3x3 box
-        box_row = (r // 3) * 3
-        box_col = (c // 3) * 3
-        for i in range(box_row, box_row + 3):
-            for j in range(box_col, box_col + 3):
-                cells.add((i, j))
+    # Add row
+    for j in range(9):
+        cells.add((row, j))
+    # Add column
+    for i in range(9):
+        cells.add((i, col))
+    # Add 3x3 box
+    box_row = (row // 3) * 3
+    box_col = (col // 3) * 3
+    for i in range(box_row, box_row + 3):
+        for j in range(box_col, box_col + 3):
+            cells.add((i, j))
 
     return cells
 
